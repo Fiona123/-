@@ -10,6 +10,7 @@ function FVue(options){
 
 	this.el = options.el;
 	this.data = options.data;
+	this.methods = options.methods;
 
 	this.proxyKeys(this.data);
 
