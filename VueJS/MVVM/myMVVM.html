@@ -4,11 +4,13 @@
 	<title>My MVVM</title>
 	<script type="text/javascript" src="Watcher.js"></script>
 	<script type="text/javascript" src="Observer.js"></script>
+	<script type="text/javascript" src="FVue.js"></script>
 </head>
 <body>
 
 	<button id='btn'></button>
-	<input id="text" type="text" name="text">
+	<span id="text"></span>
+
 	<script type="text/javascript">
 		
 		var obj = {
@@ -20,18 +22,12 @@
 			}, 
 			otherinfo: undefined,
 			others: null  
-		}
+		};
 
-		var obs = new Observer(obj);
+		var fvm = new FVue(document.getElementById("btn"), obj, "name");
+ 
 
-
-		var watcher1 = new Watcher(obj, "name", function(newVal){
-			document.getElementById("btn").innerHTML = newVal;
-		});
-
-		var watcher2 = new Watcher(obj, "age", function(newVal){
-			document.getElementById("text").value = newVal;
-		});
+		
 	</script>
 </body>
 </html>
