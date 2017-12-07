@@ -6,18 +6,15 @@
 **/
 
 
-function FVue(el, data, key){
+function FVue(options){
 
-	this.data = data;
+	this.el = options.el;
+	this.data = options.data;
 
-	this.proxyKeys(data);
+	this.proxyKeys(this.data);
 
-	new Observer(this.data);  
-
- 	new Watcher(data, key, function(newVal){
-		el.innerHTML = newVal;
-	});
-
+	new Observer(this.data);   
+	new Compile(this.el, this);
 }
 
 

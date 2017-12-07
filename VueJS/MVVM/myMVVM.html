@@ -4,12 +4,21 @@
 	<title>My MVVM</title>
 	<script type="text/javascript" src="Watcher.js"></script>
 	<script type="text/javascript" src="Observer.js"></script>
+	<script type="text/javascript" src="Compile.js"></script>
 	<script type="text/javascript" src="FVue.js"></script>
 </head>
 <body>
 
-	<button id='btn'></button>
-	<span id="text"></span>
+	<div id="mydiv" style="{width:500px}">
+		<button id='buttonid'>button value</button>
+		<input value="input2"/>
+		<span id="spanid">{{name}} </span>
+		<div class="noclass">
+			{{age}}
+			<button id="buttonidindiv">button value in div</button>
+		</div>
+	</div>
+	
 
 	<script type="text/javascript">
 		
@@ -23,8 +32,22 @@
 			otherinfo: undefined,
 			others: null  
 		};
+ 		
+ 		var fvm = new FVue({
+ 			el: "#mydiv",
+ 			data:{
+ 				name: "Fangfang",
+				age: "26",
+				education: {
+					HighSchool: "zunyi",
+					University: "Tongji" 
+				}, 
+				otherinfo: undefined,
+				others: null  
+ 			}
+ 		})
 
-		var fvm = new FVue(document.getElementById("btn"), obj, "name");
+	//	var fvm = new FVue(document.getElementById("btn"), obj, "name");
  
 
 		
