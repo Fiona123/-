@@ -10,13 +10,9 @@
 <body>
 
 	<div id="mydiv" style="{width:500px}">
-		<button id='buttonid'>button value</button>
-		<input v-model="name"/>
-		<span id="spanid">{{name}} </span>
-		<div class="noclass">
-			{{age}}
-			<button id="buttonidindiv" v-on:click="updateName">button value in div</button>
-		</div>
+		<button v-on:click="updateName">Reset Name</button>
+		<input v-model="name">
+		<span>{{name}}</span>
 	</div>
 	
 
@@ -47,7 +43,7 @@
  			},
  			methods:{
  				updateName:function(){
- 					this.name = "textname";
+ 					this.name = "Fangfang";
  				}
  			}
  		})
