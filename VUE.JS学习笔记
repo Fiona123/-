@@ -1,5 +1,5 @@
 【Vue笔记】
-Vue实现双向绑定的原理： 
+ Vue实现双向绑定的原理： 
   - https://www.cnblogs.com/libin-1/p/6893712.html 
   - https://segmentfault.com/a/1190000006599500
 
@@ -23,6 +23,7 @@ Vue实现双向绑定的原理：
 区别：vue数据驱动，通过数据来显示视图层而不是节点操作。
 
 场景：数据操作比较多的场景，更加便捷
+
 
 4、Vue的双向数据绑定原理是什么？
 
@@ -50,16 +51,33 @@ ps：16题答案同样适合”vue data是怎么实现的？”此面试题。
 答：总共分为8个阶段创建前/后，载入前/后，更新前/后，销毁前/后。
 
 创建前/后： 在beforeCreated阶段，vue实例的挂载元素$el和数据对象data都为undefined，还未初始化。在created阶段，vue实例的数据对象data有了，$el还没有。
-
+           【new Observer】
 载入前/后：在beforeMount阶段，vue实例的$el和data都初始化了，但还是挂载之前为虚拟的dom节点，data.message还未替换。在mounted阶段，vue实例挂载完成，data.message成功渲染。
+          el: 如果没有el，则mount不会触发，暂停生命周期。可以使用vm.$mount("#el")触发编译。
+          template: 查找到el之后，会查找template（render > 内部template > 外部template）, 讲template中el进行编译解析和绑定。
+          【new Compile, new Watcher】
+更新前/后：当data变化时，会触发beforeUpdate和updated方法，刷新绑定了更新的属性的DOM结点。
+销毁前/后：在执行destroy方法后，对data的改变不会再触发周期函数，说明此时vue实例已经解除了事件监听以及和dom的绑定，但是dom结构依然存在。
+          vm.$detroy()可销毁Vue实例vm。
 
-更新前/后：当data变化时，会触发beforeUpdate和updated方法。
 
-销毁前/后：在执行destroy方法后，对data的改变不会再触发周期函数，说明此时vue实例已经解除了事件监听以及和dom的绑定，但是dom结构依然存在
+6、自定义指令（v-check、v-focus）的方法有哪些？它有哪些钩子函数？还有哪些钩子函数参数？
+
+答：全局定义指令：在vue对象的directive方法里面有两个参数，一个是指令名称，另外一个是函数。组件内定义指令：directives
+
+钩子函数：bind（绑定事件触发）、inserted(节点插入的时候触发)、update（组件内相关更新）
+
+钩子函数参数：el、binding 
 
 
 
 
+
+
+
+
+
+------------------------------------------------------------------------------------------------
 
 1、active-class是哪个组件的属性？嵌套路由怎么定义？
 答：vue-router模块的router-link组件。
@@ -129,15 +147,6 @@ ps：16题答案同样适合”vue data是怎么实现的？”此面试题。
 
 
  
-
-12、自定义指令（v-check、v-focus）的方法有哪些？它有哪些钩子函数？还有哪些钩子函数参数？
-
-答：全局定义指令：在vue对象的directive方法里面有两个参数，一个是指令名称，另外一个是函数。组件内定义指令：directives
-
-钩子函数：bind（绑定事件触发）、inserted(节点插入的时候触发)、update（组件内相关更新）
-
-钩子函数参数：el、binding 
-
  
 
 14、vue-router是什么？它有哪些组件？
