@@ -78,11 +78,27 @@ v-if指令是直接销毁和重建DOM达到让元素显示和隐藏的效果
 
 7、自定义指令（v-check、v-focus）的方法有哪些？它有哪些钩子函数？还有哪些钩子函数参数？
 
-答：全局定义指令：在vue对象的directive方法里面有两个参数，一个是指令名称，另外一个是函数。组件内定义指令：directives
+答： 
+全局定义指令：在vue对象的directive方法里面有两个参数，一个是指令名称，另外一个是函数。
+ Vue.directive('focus', {
+   inserted: function(el, binding){
+    el.focus();
+    el.value = binding.name + " - "+ binding.value;
+   }
+ });
+ 组件内定义指令：directives
+ directives: {
+   check: {
+     // 指令的定义
+     inserted: function (el) {
+       el.checked = true;
+     }
+   }
+ }
 
-钩子函数：bind（绑定事件触发）、inserted(节点插入的时候触发)、update（组件内相关更新）
+钩子函数：bind（绑定事件触发）、inserted(节点插入的时候触发)、update（组件内相关更新）、unbind
 
-钩子函数参数：el、binding 
+钩子函数参数：el、binding (name, value, expression, oldValue...)
 
 
 
