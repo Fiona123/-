@@ -1,0 +1,55 @@
+https://juejin.im/post/59316e682f301e0058378558
+
+HTML
+
+1.HTML5新增功能和API
+  功能：音频&视频播放，canvas，svg，语义化标签（header, footer, artical)， 表单控件(email, number），表单属性（autocomplete, autofocus)...
+  API: outerHTML, getElementsByClassName(), classList, postMessage, Web Worker, Web Socket, Drag & Drop ...
+  
+  （1）Canvas&SVG对比?
+  
+  （2）什么是Web Socket? 
+  
+  （3）实现一个拖拽？
+  
+  （4）postMessage实现跨域？
+  
+  （5）outerHTML 
+  
+2. input和textarea的区别
+   input: 单行输入框，不可自动换行，一般用于输入少数文字
+   textarea：多行输入框，可自动换行
+
+3. 用一个div模拟textarea的实现
+   <div contenteditable="true" style="width:200px; height:200px; background-color:pink;word-wrap:break-word;overflow-y:auto">
+		A textarea implemented with div
+	</div>
+
+4. 移动设备忽略将页面中的数字识别为电话号码的方法 
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="email=no" />
+  <meta name="format-detection" content="address=no" />
+  <meta name="format-detection" content="date=no" />
+
+
+CSS
+
+1. 左右布局：左边定宽、右边自适应，不少于3种方法
+   https://www.cnblogs.com/wx1993/p/6727653.html
+   方法一：左边设置左浮动，右边宽度设置100%  (父元素要有高度）
+   方法二：左边设置浮动，下面的或者父元素清除浮动
+   方法三：父容器设置 display：flex；left设置宽度，right部分设置 flex：1   
+
+2. CSS3用过哪些新特性
+   text-shadow, border-shadow, border-radius
+   属性选择器，伪类，伪元素
+   animation, transition, transform, display:flex盒子模型
+3. BFC、IFC
+4. 对栅格的理解
+5.（水平）居中有哪些实现方式
+   方法一： display: flex; align-items: center; justify-content:center;
+   方法二： margin-left, margin-top: 50%; transform: translate(-50%; -50%); 
+   
+   
+   
+6. 像素边框问题
