@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Directive</title>
+	<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+	<div id="mydiv">
+		
+		<input type="text" name="name" v-focus:hello="1+1">
+		<input type="checkbox" name="cbx" v-check>
+	</div>
+<script type="text/javascript">
+	Vue.directive('focus', {
+		inserted: function(el, binding){
+			el.focus();
+			el.value = binding.name + " - "+ binding.value;
+		}
+	});
+
+	Vue.directive('check', {
+		inserted: function(el, binding){
+			el.checked = true; 
+		}
+	});
+
+	var vm = new Vue({
+		el: "#mydiv",
+		data: {
+			text: "bindtext"
+		}
+	});
+
+
+</script>
+		
+
+</body>
+</html>

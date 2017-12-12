@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Life Cycle of Vue</title>
+	<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+	<div id="mydiv">
+		<button v-on:click="updateText">Update</button>
+		<label id="mylabel">{{text}}</label>
+
+	</div>
+
+	<script type="text/javascript">
+		
+		var vm = new Vue({
+			el: "#mydiv",
+			data: {
+				text: "bindtext"
+			},
+			methods: {
+				updateText: function(){
+					this.text = "updatetext";
+				} 
+			},
+
+			beforeCreate: function () { 
+				//data is not observed, getter function of properties are undefined.
+		    	console.log('调用了beforeCreat钩子函数' + this.text.__defineGetter__ );
+		    },
+		    created: function () {
+		    	//Observer created!!!
+		    	//data is observed, getter & setter function of properties are defined.
+		    	console.log('调用了created钩子函数'   + this.text.__defineGetter__ )
+		    },
+
+
+		    //没有el就不会调去mount，会暂停生命周期，除非用vm.$mount('#mydiv')手动触发
+		    //查到有el的话，会去查找内部template,然后查找外部template,查找template中是否有el。 
+		    //render函数 > 内部模板 > 外部模板
+		    beforeMount: function () {
+		    	console.log('调用了beforeMount钩子函数' + document.getElementById("mylabel").textContent);
+		    },
+		    mounted: function () {
+		    	//Compile & Watcher initialized. 
+		  	  	console.log('调用了mounted钩子函数' + document.getElementById("mylabel").textContent);
+		    },
+
+		    beforeUpdate: function () {
+			    console.log('调用了beforeUpdate钩子函数' + document.getElementById("mylabel").textContent);
+			},
+			updated: function () {
+			    console.log('调用了updated钩子函数' + document.getElementById("mylabel").textContent);
+			},
+
+			beforeDestroy: function () {
+			    console.log('beforeDestroy' + this.text);
+			},
+			destroyed: function () {
+			    console.log('调用了destroyed钩子函数' + this.text);
+			}
+		});
+
+
+
+	</script>
+</body>
+</html>
