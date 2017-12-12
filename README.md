@@ -1,6 +1,21 @@
-# - 前端开发学习笔记
+# - 面试准备
 
-ES6 
+eBay:
+● Understand Platform as A Service, Infrastructure as A Service.
+● Craftsman spirit to make a great product. 
+● Experienced frontend developer, e.g. React JS.    
+● Experiences on building high available system with a lot of dependencies. 
+● Willing to proactively reaching customers, dig support tickets to identify improvement opportunities and exercises ideas.
+● Customer Care mindset.  Have passion to improve Altus User Experience.  Take customer complains as opportunity to improve.   
 
 
-1. customer on cloud: how can they create transaction data ?
+1. Git & GitHub
+
+2. 代码模块化，模块化打包工具
+
+3. HTTP请求全过程
+
+4. 浏览器渲染
+
+eBay: 
+1. Cloud IAAS, PAAS, SASS
