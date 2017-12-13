@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Block Formatting Contexts & Inline Formatting Contexts</title>
+</head>
+<body>
+	<div style="overflow: hidden;background-color: pink">
+		<div style="float: left; width: 100px; height: 100px;background-color: black;"></div>
+	</div>
+	<div style="background-color: yellow">
+		Next Div 
+	</div>
+
+	<div style="background: #AAA;overflow: hidden;">
+	  	<div style="width: 100px; height: 100px; margin-top: 50px; background: #000;">
+	</div>
+
+	<div style="float: left; width: 100px; height: 100px; background: red;">
+	</div>
+	<div style="height: 200px; background: blue;">
+	  content
+	</div>
+
+
+	<div style="background-color: yellow; width: 250px; height: 200px;position: absolute;"> 
+		<div style="background-color: pink; position: absolute;left: 0;right: 0;top: 0;bottom: 0; width: 100px; height: 100px; margin: auto;"></div>
+	</div>
+</div>
+</body>
+</html>
