@@ -67,10 +67,41 @@ https://juejin.im/post/59316e682f301e0058378558
    属性选择器，伪类，伪元素
    animation, transition, transform, display:flex盒子模型
 3. BFC、IFC
+	
+   BFC是一个独立的渲染区域，区域内元素的布局，不会影响外部元素
+   
+   BFC = Block Fomatting Contexts = 块级格式化上下文 
+   https://zjy.name/archives/bfc-introduction.html
+   
+   对内部元素的包裹性：
+   
+   - 能包裹float元素，不会造成父元素高度的坍塌 => 比如使用overflow, clear:both清楚浮动，或者使父元素也变成float,这样也形成了一个独立的渲染区域。
+   
+   - 能包裹margin，父元素和子元素margin重叠时，会发生margin折叠，如果只设置了子元素的margin，会导致父子元素同时向下推移，而不是父元素把子元素向下推      移。 把父元素设置成overflow: hidden,让父元素变成一个BFC， margin不会发生在BFC父元素和子元素之间。
+   
+   对外部元素的独立性： 不会和浮动元素重叠
+   
+   
+   满足以下任意一条可以创建BFC: 
+   * float的值不为none。
+   * overflow的值不为visible。
+   * display的值为table-cell, table-caption, inline-block中的任何一个。
+   * position的值不为relative和static。
+
+4. 清楚浮动的方法
+   伪元素： .father:after {content: ".", visibility: none; clear:both}
+   在float元素之后加一个元素设置clear:both
+   overflow: .father {overflow: hidden}
+   
 4. 对栅格的理解
-5.（水平）居中有哪些实现方式
+
+5.（水平）居中实现方式
+   方法一：margin: 0 auto;
+   
+6.（水平&垂直）居中有哪些实现方式
    方法一： display: flex; align-items: center; justify-content:center;
-   方法二： margin-left, margin-top: 50%; transform: translate(-50%; -50%);   
+   方法二： margin-left, margin-top: 50%; transform: translate(-50%; -50%); | margin: -150px,0,0,-100px;
+   方法三（absolute）：position: absolute; margin:0; left:0;top:0;bottom:0;right:0;
    
 6. 像素边框问题
 
