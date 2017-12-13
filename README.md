@@ -266,6 +266,7 @@
    
 3. （承上）页面的渲染过程
 
+    http://blog.csdn.net/xiaozhuxmen/article/details/52014901
 
 4. 优化中会提到缓存的问题，问：静态资源或者接口等如何做缓存优化
 
