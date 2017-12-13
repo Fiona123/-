@@ -4,6 +4,7 @@
 职位描述：去年四月我们投资并购了东南亚第一电商Lazada，然后利用半年时间成功实现了商家端的整合，目前在继续搜索、数据平台等业务的输出，真正利用阿里巴巴先进成熟的产品和技术快速提升海外本地电商的能力，帮助阿里生态迅速发展海外业务。与此同时，我们在基于阿里已有平台抽取出一套国际化的全链路系统，从无线手机端到交易链路，从商家业务到大数据和推荐，打造全新的端到端国际电商操作系统，并在未来多个海外收购公司实现复用。今年二月又投资了印度PayTM电商，开启了第二战场，阿里国际化进入了轰轰烈烈的执行阶段。在这里你不仅有机会了解阿里商品、交易、会员、营销等核心平台，而且有机会接受极具前瞻性的海外电商业务的挑战，并且需要针对多国场景进行业务抽象和平台剥离，任务的新颖性和挑战性都是前所未有的。岗位包含产品、架构师、开发、测试、前端等各类角色，业务涉及电商端到端的所有环节，只要你自信，有能力、有激情，一定可以找到吸引自己的新挑战。机会只有一次，期待你的加入，参与阿里国际化大战略，和我们一起共创阿里的未来！
 
 职位要求：
+
 1、至少3年以上前端开发经验，精通HTML、CSS、JS，熟悉页面架构和布局，对表现与数据分离、Web语义化等有深刻理解
 
 2、良好的编程习惯，至少掌握一种以下语言，如 PHP、Java、Python、nodeJs
@@ -19,10 +20,12 @@
 
 https://juejin.im/post/59316e682f301e0058378558
 
-HTML
+【HTML】
 
 1.HTML5新增功能和API
+
   功能：音频&视频播放，canvas，svg，语义化标签（header, footer, artical)， 表单控件(email, number），表单属性（autocomplete, autofocus)...
+  
   API: outerHTML, getElementsByClassName(), classList, postMessage, Web Worker, Web Socket, Drag & Drop ...
   
   （1）Canvas&SVG对比?
@@ -51,7 +54,7 @@ HTML
   <meta name="format-detection" content="date=no" />
 
 
-CSS
+【CSS】
 
 1. 左右布局：左边定宽、右边自适应，不少于3种方法
    https://www.cnblogs.com/wx1993/p/6727653.html
@@ -67,9 +70,7 @@ CSS
 4. 对栅格的理解
 5.（水平）居中有哪些实现方式
    方法一： display: flex; align-items: center; justify-content:center;
-   方法二： margin-left, margin-top: 50%; transform: translate(-50%; -50%); 
-   
-   
+   方法二： margin-left, margin-top: 50%; transform: translate(-50%; -50%);   
    
 6. 像素边框问题
 
