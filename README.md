@@ -20,6 +20,7 @@
 
 https://juejin.im/post/59316e682f301e0058378558
 
+
 【HTML】
 
 1.HTML5新增功能和API
@@ -39,38 +40,58 @@ https://juejin.im/post/59316e682f301e0058378558
   （5）outerHTML 
   
 2. input和textarea的区别
+
    input: 单行输入框，不可自动换行，一般用于输入少数文字
+   
    textarea：多行输入框，可自动换行
+   
 
 3. 用一个div模拟textarea的实现
+
    <div contenteditable="true" style="width:200px; height:200px; background-color:pink;word-wrap:break-word;overflow-y:auto">
-		A textarea implemented with div
-	</div>
+	A textarea implemented with div
+   </div>
 
 4. 移动设备忽略将页面中的数字识别为电话号码的方法 
+
   <meta name="format-detection" content="telephone=no" />
+  
   <meta name="format-detection" content="email=no" />
+  
   <meta name="format-detection" content="address=no" />
+  
   <meta name="format-detection" content="date=no" />
+  
 
 
 【CSS】
 
 1. 左右布局：左边定宽、右边自适应，不少于3种方法
+
    https://www.cnblogs.com/wx1993/p/6727653.html
+   
    方法一：左边设置左浮动，右边宽度设置100%  (父元素要有高度）
+   
    方法二：左边设置浮动，下面的或者父元素清除浮动
+   
    方法三：父容器设置 display：flex；left设置宽度，right部分设置 flex：1   
+   
 
 2. CSS3用过哪些新特性
+
    text-shadow, border-shadow, border-radius
+   
    属性选择器，伪类，伪元素
+   
    animation, transition, transform, display:flex盒子模型
+   
+   
 3. BFC、IFC
 	
    BFC是一个独立的渲染区域，区域内元素的布局，不会影响外部元素
    
    BFC = Block Fomatting Contexts = 块级格式化上下文 
+   
    https://zjy.name/archives/bfc-introduction.html
    
    对内部元素的包裹性：
@@ -83,39 +104,138 @@ https://juejin.im/post/59316e682f301e0058378558
    
    
    满足以下任意一条可以创建BFC: 
+   
    * float的值不为none。
+   
    * overflow的值不为visible。
+   
    * display的值为table-cell, table-caption, inline-block中的任何一个。
+   
    * position的值不为relative和static。
+   
 
 4. 清楚浮动的方法
+
    伪元素： .father:after {content: ".", visibility: none; clear:both}
+   
    在float元素之后加一个元素设置clear:both
-   overflow: .father {overflow: hidden}
+   
+   overflow: .father {overflow: hidden} 
    
 4. 对栅格的理解
 
 5.（水平）居中实现方式
+
    方法一：margin: 0 auto;
    
 6.（水平&垂直）居中有哪些实现方式
+
    方法一： display: flex; align-items: center; justify-content:center;
+   
    方法二： margin-left, margin-top: 50%; transform: translate(-50%; -50%); | margin: -150px,0,0,-100px;
+   
    方法三（absolute）：position: absolute; margin:0; left:0;top:0;bottom:0;right:0;
+   
    
 6. 像素边框问题
 
 
+【JavaScript】
+
+1. 图片懒加载 & 图片预加载
+
+   https://www.cnblogs.com/tugenhua0707/p/3525668.html
+   
+
+   方法一：可视区加载 - http://blog.csdn.net/gy_u_yg/article/details/73132171 
+   
+   原理：把图片src设置成空，当scroll到当前图片时，再动态设置src 
+  
+   <script type="text/javascript">
+	
+        var aImg = document.querySelectorAll('img');
+	
+        var len = aImg.length;
+	
+        var n = 0;//存储图片加载到的位置，避免每次都从第一张图片开始遍历
+	
+        window.onscroll = function() {
+	
+            var seeHeight = document.documentElement.clientHeight; //document.documentElement -> 返回文档根节点
+	    
+	    var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+	    
+            for (var i = n; i < len; i++) {
+	    
+                if (aImg[i].offsetTop < seeHeight + scrollTop) {
+		
+                    if (aImg[i].getAttribute('src') == '') {
+		    
+                        aImg[i].src = aImg[i].getAttribute('guoyu-src');
+			
+                    }
+		    
+                    n = i + 1;
+		    
+                }
+            }
+        };
+	
+    </script>
+    
+    方法二：延迟加载，setTimeOut() & setTimeInterval()
+    
+    方法三：条件加载，符合某些条件或者触发某些事件才加载
+    
+    
+    预加载： 提前加载图片，当用户需要查看时可直接从本地缓存中渲染。
+    
+    function loadImage(url,callback) {
+    
+	    var img = new Image();
+
+	    img.src = url;
+
+	    if(img.complete) {  // 如果图片已经存在于浏览器缓存，直接调用回调函数
+
+		callback.call(img); 
+		
+		return; // 直接返回，不用再处理onload事件
+	    }
+
+	    img.onload = function(){
+		img.onload = null;
+		callback.call(img);
+	    }
+    }
+
+
+2. 实现页面加载进度条
+   
+   两个div，一个是进度条框，一个是进度条进程框inner,动态设置inner宽度
+   
+   随机时间，随机进度，设置inner宽度，保证宽度小于98%， window.onload触发时，设置宽度100%。
+   
+   
+
 
 
 1. Git & GitHub
-   http://www.cnblogs.com/onetwo/p/4157610.html
 
+   http://www.cnblogs.com/onetwo/p/4157610.html
+   
+   Git & SVN的区别？ 分布式-集中式
+   
+   
+	
 2. 代码模块化，模块化打包工具
+
 
 3. HTTP请求全过程
 
+
 4. 浏览器渲染
+
 
 eBay: 
 1. Cloud IAAS, PAAS, SASS
