@@ -1,12 +1,5 @@
 # - 面试准备
 
-eBay:
-● Understand Platform as A Service, Infrastructure as A Service.
-● Craftsman spirit to make a great product. 
-● Experienced frontend developer, e.g. React JS.    
-● Experiences on building high available system with a lot of dependencies. 
-● Willing to proactively reaching customers, dig support tickets to identify improvement opportunities and exercises ideas.
-● Customer Care mindset.  Have passion to improve Altus User Experience.  Take customer complains as opportunity to improve.   
 
   
 职位名称：国际技术事业部-Lazada-海外电商-前端开发(杭州/新加坡)
